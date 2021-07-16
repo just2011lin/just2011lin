@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>用于管理定时器的小框架 | just2011lin的技术博客</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="学了什么就用什么">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.f507fe5c.js" as="script"><link rel="preload" href="/assets/js/2.329362c0.js" as="script"><link rel="preload" href="/assets/js/32.a4cc06c8.js" as="script"><link rel="prefetch" href="/assets/js/10.50184b14.js"><link rel="prefetch" href="/assets/js/11.40639c88.js"><link rel="prefetch" href="/assets/js/12.2b633aa8.js"><link rel="prefetch" href="/assets/js/13.c2cb6e7d.js"><link rel="prefetch" href="/assets/js/14.77eee6c1.js"><link rel="prefetch" href="/assets/js/15.0071b438.js"><link rel="prefetch" href="/assets/js/16.a5e93048.js"><link rel="prefetch" href="/assets/js/17.be2f72ef.js"><link rel="prefetch" href="/assets/js/18.d1dfdffe.js"><link rel="prefetch" href="/assets/js/19.c63dedd4.js"><link rel="prefetch" href="/assets/js/20.fb9d0759.js"><link rel="prefetch" href="/assets/js/21.bb8e85e8.js"><link rel="prefetch" href="/assets/js/22.baa36040.js"><link rel="prefetch" href="/assets/js/23.ced46d0c.js"><link rel="prefetch" href="/assets/js/24.0612341a.js"><link rel="prefetch" href="/assets/js/25.2c5250e5.js"><link rel="prefetch" href="/assets/js/26.3e56ba12.js"><link rel="prefetch" href="/assets/js/27.33f225ba.js"><link rel="prefetch" href="/assets/js/28.b75fb278.js"><link rel="prefetch" href="/assets/js/29.06ce868f.js"><link rel="prefetch" href="/assets/js/3.6e902163.js"><link rel="prefetch" href="/assets/js/30.5713142b.js"><link rel="prefetch" href="/assets/js/31.c36c8bfe.js"><link rel="prefetch" href="/assets/js/33.a5471b6d.js"><link rel="prefetch" href="/assets/js/34.a9b789f3.js"><link rel="prefetch" href="/assets/js/35.60520fb6.js"><link rel="prefetch" href="/assets/js/36.fc23a3b6.js"><link rel="prefetch" href="/assets/js/37.a6798c92.js"><link rel="prefetch" href="/assets/js/38.4baf6962.js"><link rel="prefetch" href="/assets/js/39.0379d964.js"><link rel="prefetch" href="/assets/js/4.ba3164ba.js"><link rel="prefetch" href="/assets/js/40.78be8984.js"><link rel="prefetch" href="/assets/js/5.75a3592b.js"><link rel="prefetch" href="/assets/js/6.0377ba0c.js"><link rel="prefetch" href="/assets/js/7.abf41f48.js"><link rel="prefetch" href="/assets/js/8.72a7f551.js"><link rel="prefetch" href="/assets/js/9.0cf5eb4e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">just2011lin的技术博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="浏览" class="dropdown-title"><span class="title">浏览</span> <span class="arrow down"></span></button> <button type="button" aria-label="浏览" class="mobile-dropdown-title"><span class="title">浏览</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link">
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/stylesheet/" class="nav-link">
+  stylesheet
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/third-party/" class="nav-link router-link-active">
+  third-party
+</a></li><li class="dropdown-item"><!----> <a href="/other/" class="nav-link">
+  other
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="浏览" class="dropdown-title"><span class="title">浏览</span> <span class="arrow down"></span></button> <button type="button" aria-label="浏览" class="mobile-dropdown-title"><span class="title">浏览</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link">
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/stylesheet/" class="nav-link">
+  stylesheet
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/third-party/" class="nav-link router-link-active">
+  third-party
+</a></li><li class="dropdown-item"><!----> <a href="/other/" class="nav-link">
+  other
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>用于管理定时器的小框架</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/third-party/%E7%94%A8%E4%BA%8E%E7%AE%A1%E7%90%86%E5%AE%9A%E6%97%B6%E5%99%A8%E7%9A%84%E5%B0%8F%E6%A1%86%E6%9E%B6.html#minidaemon" class="sidebar-link">minidaemon</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="用于管理定时器的小框架"><a href="#用于管理定时器的小框架" class="header-anchor">#</a> 用于管理定时器的小框架</h1> <h2 id="minidaemon"><a href="#minidaemon" class="header-anchor">#</a> minidaemon</h2> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token comment">/*\
+|*|
+|*|  :: MiniDaemon ::
+|*|
+|*|  Revision #2 - September 26, 2014
+|*|
+|*|  https://developer.mozilla.org/en-US/docs/Web/API/window.setInterval
+|*|  https://developer.mozilla.org/User:fusionchess
+|*|  https://github.com/madmurphy/minidaemon.js
+|*|
+|*|  This framework is released under the GNU Lesser General Public License, version 3 or later.
+|*|  http://www.gnu.org/licenses/lgpl-3.0.html
+|*|
+\*/</span>
+
+<span class="token keyword">function</span> <span class="token function">MiniDaemon</span> <span class="token punctuation">(</span>oOwner<span class="token punctuation">,</span> fTask<span class="token punctuation">,</span> nRate<span class="token punctuation">,</span> nLen<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span> <span class="token keyword">instanceof</span> <span class="token class-name">MiniDaemon</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>arguments<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">'MiniDaemon - not enough arguments'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>oOwner<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>owner <span class="token operator">=</span> oOwner<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>task <span class="token operator">=</span> fTask<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isFinite</span><span class="token punctuation">(</span>nRate<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> nRate <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rate <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>nRate<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>nLen <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>nLen<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+MiniDaemon<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>owner <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+MiniDaemon<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>task <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+MiniDaemon<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>rate <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+MiniDaemon<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">Infinity</span><span class="token punctuation">;</span>
+
+  <span class="token comment">/* These properties should be read-only */</span>
+
+MiniDaemon<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token constant">SESSION</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+MiniDaemon<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token constant">INDEX</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+MiniDaemon<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token constant">PAUSED</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+MiniDaemon<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token constant">BACKW</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+  <span class="token comment">/* Global methods */</span>
+
+MiniDaemon<span class="token punctuation">.</span><span class="token function-variable function">forceCall</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>oDmn<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  oDmn<span class="token punctuation">.</span><span class="token constant">INDEX</span> <span class="token operator">+=</span> oDmn<span class="token punctuation">.</span><span class="token constant">BACKW</span> <span class="token operator">?</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>oDmn<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>oDmn<span class="token punctuation">.</span>owner<span class="token punctuation">,</span> oDmn<span class="token punctuation">.</span><span class="token constant">INDEX</span><span class="token punctuation">,</span> oDmn<span class="token punctuation">.</span>length<span class="token punctuation">,</span> oDmn<span class="token punctuation">.</span><span class="token constant">BACKW</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token boolean">false</span> <span class="token operator">||</span> oDmn<span class="token punctuation">.</span><span class="token function">isAtEnd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> oDmn<span class="token punctuation">.</span><span class="token function">pause</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token comment">/* Instances methods */</span>
+
+MiniDaemon<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">isAtEnd</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">BACKW</span> <span class="token operator">?</span> <span class="token function">isFinite</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">INDEX</span> <span class="token operator">&lt;</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">INDEX</span> <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+MiniDaemon<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">synchronize</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">PAUSED</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+  <span class="token function">clearInterval</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">SESSION</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">SESSION</span> <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span>MiniDaemon<span class="token punctuation">.</span>forceCall<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rate<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+MiniDaemon<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">pause</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">clearInterval</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">SESSION</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">PAUSED</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+MiniDaemon<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">start</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>bReverse<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> bBackw <span class="token operator">=</span> <span class="token function">Boolean</span><span class="token punctuation">(</span>bReverse<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">BACKW</span> <span class="token operator">===</span> bBackw <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">isAtEnd</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">PAUSED</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">BACKW</span> <span class="token operator">=</span> bBackw<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">PAUSED</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">synchronize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.f507fe5c.js" defer></script><script src="/assets/js/2.329362c0.js" defer></script><script src="/assets/js/32.a4cc06c8.js" defer></script>
+  </body>
+</html>

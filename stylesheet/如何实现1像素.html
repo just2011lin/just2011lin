@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>如何实现1像素 | just2011lin的技术博客</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="学了什么就用什么">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.f507fe5c.js" as="script"><link rel="preload" href="/assets/js/2.329362c0.js" as="script"><link rel="preload" href="/assets/js/29.06ce868f.js" as="script"><link rel="prefetch" href="/assets/js/10.50184b14.js"><link rel="prefetch" href="/assets/js/11.40639c88.js"><link rel="prefetch" href="/assets/js/12.2b633aa8.js"><link rel="prefetch" href="/assets/js/13.c2cb6e7d.js"><link rel="prefetch" href="/assets/js/14.77eee6c1.js"><link rel="prefetch" href="/assets/js/15.0071b438.js"><link rel="prefetch" href="/assets/js/16.a5e93048.js"><link rel="prefetch" href="/assets/js/17.be2f72ef.js"><link rel="prefetch" href="/assets/js/18.d1dfdffe.js"><link rel="prefetch" href="/assets/js/19.c63dedd4.js"><link rel="prefetch" href="/assets/js/20.fb9d0759.js"><link rel="prefetch" href="/assets/js/21.bb8e85e8.js"><link rel="prefetch" href="/assets/js/22.baa36040.js"><link rel="prefetch" href="/assets/js/23.ced46d0c.js"><link rel="prefetch" href="/assets/js/24.0612341a.js"><link rel="prefetch" href="/assets/js/25.2c5250e5.js"><link rel="prefetch" href="/assets/js/26.3e56ba12.js"><link rel="prefetch" href="/assets/js/27.33f225ba.js"><link rel="prefetch" href="/assets/js/28.b75fb278.js"><link rel="prefetch" href="/assets/js/3.6e902163.js"><link rel="prefetch" href="/assets/js/30.5713142b.js"><link rel="prefetch" href="/assets/js/31.c36c8bfe.js"><link rel="prefetch" href="/assets/js/32.a4cc06c8.js"><link rel="prefetch" href="/assets/js/33.a5471b6d.js"><link rel="prefetch" href="/assets/js/34.a9b789f3.js"><link rel="prefetch" href="/assets/js/35.60520fb6.js"><link rel="prefetch" href="/assets/js/36.fc23a3b6.js"><link rel="prefetch" href="/assets/js/37.a6798c92.js"><link rel="prefetch" href="/assets/js/38.4baf6962.js"><link rel="prefetch" href="/assets/js/39.0379d964.js"><link rel="prefetch" href="/assets/js/4.ba3164ba.js"><link rel="prefetch" href="/assets/js/40.78be8984.js"><link rel="prefetch" href="/assets/js/5.75a3592b.js"><link rel="prefetch" href="/assets/js/6.0377ba0c.js"><link rel="prefetch" href="/assets/js/7.abf41f48.js"><link rel="prefetch" href="/assets/js/8.72a7f551.js"><link rel="prefetch" href="/assets/js/9.0cf5eb4e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">just2011lin的技术博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="浏览" class="dropdown-title"><span class="title">浏览</span> <span class="arrow down"></span></button> <button type="button" aria-label="浏览" class="mobile-dropdown-title"><span class="title">浏览</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link">
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/stylesheet/" class="nav-link router-link-active">
+  stylesheet
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/third-party/" class="nav-link">
+  third-party
+</a></li><li class="dropdown-item"><!----> <a href="/other/" class="nav-link">
+  other
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="浏览" class="dropdown-title"><span class="title">浏览</span> <span class="arrow down"></span></button> <button type="button" aria-label="浏览" class="mobile-dropdown-title"><span class="title">浏览</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link">
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/stylesheet/" class="nav-link router-link-active">
+  stylesheet
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/third-party/" class="nav-link">
+  third-party
+</a></li><li class="dropdown-item"><!----> <a href="/other/" class="nav-link">
+  other
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>如何实现1像素</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/stylesheet/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B01%E5%83%8F%E7%B4%A0.html#min-resolution" class="sidebar-link">min-resolution</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="如何实现1像素"><a href="#如何实现1像素" class="header-anchor">#</a> 如何实现1像素</h1> <h2 id="min-resolution"><a href="#min-resolution" class="header-anchor">#</a> min-resolution</h2> <p>设备物理像素分辨率与css像素分辨率比值的最小值</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token atrule"><span class="token rule">@media</span> screen <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">resolution</span><span class="token punctuation">:</span> 2dppx<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token selector">.class-name</span> <span class="token punctuation">{</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 0.5px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule"><span class="token rule">@media</span> screen <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">resolution</span><span class="token punctuation">:</span> 3dppx<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token selector">.class-name</span> <span class="token punctuation">{</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 0.5px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.f507fe5c.js" defer></script><script src="/assets/js/2.329362c0.js" defer></script><script src="/assets/js/29.06ce868f.js" defer></script>
+  </body>
+</html>

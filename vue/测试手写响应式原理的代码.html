@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>测试手写响应式原理的代码 | just2011lin的技术博客</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="学了什么就用什么">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.f507fe5c.js" as="script"><link rel="preload" href="/assets/js/2.329362c0.js" as="script"><link rel="preload" href="/assets/js/39.0379d964.js" as="script"><link rel="prefetch" href="/assets/js/10.50184b14.js"><link rel="prefetch" href="/assets/js/11.40639c88.js"><link rel="prefetch" href="/assets/js/12.2b633aa8.js"><link rel="prefetch" href="/assets/js/13.c2cb6e7d.js"><link rel="prefetch" href="/assets/js/14.77eee6c1.js"><link rel="prefetch" href="/assets/js/15.0071b438.js"><link rel="prefetch" href="/assets/js/16.a5e93048.js"><link rel="prefetch" href="/assets/js/17.be2f72ef.js"><link rel="prefetch" href="/assets/js/18.d1dfdffe.js"><link rel="prefetch" href="/assets/js/19.c63dedd4.js"><link rel="prefetch" href="/assets/js/20.fb9d0759.js"><link rel="prefetch" href="/assets/js/21.bb8e85e8.js"><link rel="prefetch" href="/assets/js/22.baa36040.js"><link rel="prefetch" href="/assets/js/23.ced46d0c.js"><link rel="prefetch" href="/assets/js/24.0612341a.js"><link rel="prefetch" href="/assets/js/25.2c5250e5.js"><link rel="prefetch" href="/assets/js/26.3e56ba12.js"><link rel="prefetch" href="/assets/js/27.33f225ba.js"><link rel="prefetch" href="/assets/js/28.b75fb278.js"><link rel="prefetch" href="/assets/js/29.06ce868f.js"><link rel="prefetch" href="/assets/js/3.6e902163.js"><link rel="prefetch" href="/assets/js/30.5713142b.js"><link rel="prefetch" href="/assets/js/31.c36c8bfe.js"><link rel="prefetch" href="/assets/js/32.a4cc06c8.js"><link rel="prefetch" href="/assets/js/33.a5471b6d.js"><link rel="prefetch" href="/assets/js/34.a9b789f3.js"><link rel="prefetch" href="/assets/js/35.60520fb6.js"><link rel="prefetch" href="/assets/js/36.fc23a3b6.js"><link rel="prefetch" href="/assets/js/37.a6798c92.js"><link rel="prefetch" href="/assets/js/38.4baf6962.js"><link rel="prefetch" href="/assets/js/4.ba3164ba.js"><link rel="prefetch" href="/assets/js/40.78be8984.js"><link rel="prefetch" href="/assets/js/5.75a3592b.js"><link rel="prefetch" href="/assets/js/6.0377ba0c.js"><link rel="prefetch" href="/assets/js/7.abf41f48.js"><link rel="prefetch" href="/assets/js/8.72a7f551.js"><link rel="prefetch" href="/assets/js/9.0cf5eb4e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">just2011lin的技术博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="浏览" class="dropdown-title"><span class="title">浏览</span> <span class="arrow down"></span></button> <button type="button" aria-label="浏览" class="mobile-dropdown-title"><span class="title">浏览</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link">
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/stylesheet/" class="nav-link">
+  stylesheet
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link router-link-active">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/third-party/" class="nav-link">
+  third-party
+</a></li><li class="dropdown-item"><!----> <a href="/other/" class="nav-link">
+  other
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="浏览" class="dropdown-title"><span class="title">浏览</span> <span class="arrow down"></span></button> <button type="button" aria-label="浏览" class="mobile-dropdown-title"><span class="title">浏览</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link">
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/stylesheet/" class="nav-link">
+  stylesheet
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link router-link-active">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/third-party/" class="nav-link">
+  third-party
+</a></li><li class="dropdown-item"><!----> <a href="/other/" class="nav-link">
+  other
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>测试手写响应式原理的代码</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="测试手写响应式原理的代码"><a href="#测试手写响应式原理的代码" class="header-anchor">#</a> 测试手写响应式原理的代码</h1> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> testWatch <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token function">testProp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> hero <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token operator">:</span> <span class="token string">'孙悟空'</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token function">observe</span><span class="token punctuation">(</span>hero<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">new</span> <span class="token class-name">Watch</span><span class="token punctuation">(</span>hero<span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> oldValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">doubleAssert</span><span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> <span class="token string">'猪八戒'</span><span class="token punctuation">,</span> oldValue<span class="token punctuation">,</span> <span class="token string">'孙悟空'</span><span class="token punctuation">,</span> <span class="token string">'验证一层的属性响应了变化'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            hero<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'猪八戒'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">testDoubleProp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> hero <span class="token operator">=</span> <span class="token punctuation">{</span>
+                master<span class="token operator">:</span> <span class="token punctuation">{</span>
+                    name<span class="token operator">:</span> <span class="token string">'唐僧'</span><span class="token punctuation">,</span>
+                    age<span class="token operator">:</span> <span class="token number">18</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token function">observe</span><span class="token punctuation">(</span>hero<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">new</span> <span class="token class-name">Watch</span><span class="token punctuation">(</span>hero<span class="token punctuation">,</span> <span class="token string">'master.age'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> oldvalue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">doubleAssert</span><span class="token punctuation">(</span>oldvalue<span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> newValue<span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">,</span> <span class="token string">'验证二层的属性响应了变化'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            hero<span class="token punctuation">.</span>master<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">24</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">testTripleProp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> hero <span class="token operator">=</span> <span class="token punctuation">{</span>
+                master<span class="token operator">:</span> <span class="token punctuation">{</span>
+                    friend<span class="token operator">:</span> <span class="token punctuation">{</span>
+                        age<span class="token operator">:</span> <span class="token number">18</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token function">observe</span><span class="token punctuation">(</span>hero<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">new</span> <span class="token class-name">Watch</span><span class="token punctuation">(</span>hero<span class="token punctuation">,</span> <span class="token string">'master.friend.age'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> oldValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">doubleAssert</span><span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">,</span> oldValue<span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token string">'验证三层的属性响应了变化'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            hero<span class="token punctuation">.</span>master<span class="token punctuation">.</span>friend<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">24</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">testNewObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> hero <span class="token operator">=</span> <span class="token punctuation">{</span>
+                master<span class="token operator">:</span> <span class="token keyword">null</span>
+            <span class="token punctuation">}</span>
+            <span class="token function">observe</span><span class="token punctuation">(</span>hero<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">new</span> <span class="token class-name">Watch</span><span class="token punctuation">(</span>hero<span class="token punctuation">,</span> <span class="token string">'master.age'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> oldValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">doubleAssert</span><span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> oldValue<span class="token punctuation">,</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span> <span class="token string">'验证后设置的对象中的属性的响应'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            hero<span class="token punctuation">.</span>master <span class="token operator">=</span> <span class="token punctuation">{</span>age<span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">testPushArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> hero <span class="token operator">=</span> <span class="token punctuation">{</span>
+                friends<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'唐三藏'</span><span class="token punctuation">]</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token function">observe</span><span class="token punctuation">(</span>hero<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">new</span> <span class="token class-name">Watch</span><span class="token punctuation">(</span>hero<span class="token punctuation">,</span> <span class="token string">'friends'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> oldValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">doubleAssert</span><span class="token punctuation">(</span>newValue<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'猪八戒'</span><span class="token punctuation">,</span> oldValue<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'唐三藏'</span><span class="token punctuation">,</span> <span class="token string">'验证数组的push方法'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            hero<span class="token punctuation">.</span>friends<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'猪八戒'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">testPushedObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> hero <span class="token operator">=</span> <span class="token punctuation">{</span>
+                friends<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token function">observe</span><span class="token punctuation">(</span>hero<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">new</span> <span class="token class-name">Watch</span><span class="token punctuation">(</span>hero<span class="token punctuation">,</span> <span class="token string">'friends.0.age'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> oldValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">doubleAssert</span><span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> oldValue<span class="token punctuation">,</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span> <span class="token string">'验证用push方法添加的对象的属性变化'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            hero<span class="token punctuation">.</span>friends<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>age<span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">testNestedArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> hero <span class="token operator">=</span> <span class="token punctuation">{</span>
+                friends<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'张三丰'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+            <span class="token punctuation">}</span>
+            <span class="token function">observe</span><span class="token punctuation">(</span>hero<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">new</span> <span class="token class-name">Watch</span><span class="token punctuation">(</span>hero<span class="token punctuation">,</span> <span class="token string">'friends'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> oldValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">doubleAssert</span><span class="token punctuation">(</span>newValue<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'孙悟空'</span><span class="token punctuation">,</span> oldValue<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'张三丰'</span><span class="token punctuation">,</span> <span class="token string">'验证二位数组中内数组的变化触发了外数组的监听'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            hero<span class="token punctuation">.</span>friends<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'孙悟空'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">testArrayObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> hero <span class="token operator">=</span> <span class="token punctuation">{</span>
+                friends<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>age<span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token function">observe</span><span class="token punctuation">(</span>hero<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">new</span> <span class="token class-name">Watch</span><span class="token punctuation">(</span>hero<span class="token punctuation">,</span> <span class="token string">'friends.0.age'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> oldValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">doubleAssert</span><span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">,</span> oldValue<span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token string">'验证数组中对象属性的监听'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            hero<span class="token punctuation">.</span>friends<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">24</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">let</span> length<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">doubleAssert</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">,</span> message<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        index<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">===</span> b <span class="token operator">&amp;&amp;</span> c <span class="token operator">===</span> d<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'通过：'</span><span class="token punctuation">,</span> message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'不通过：'</span><span class="token punctuation">,</span> message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">const</span> values <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span>testWatch<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    length <span class="token operator">=</span> values<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> func <span class="token keyword">of</span> values<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">!==</span> length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'测试了'</span><span class="token punctuation">,</span> length<span class="token punctuation">,</span> <span class="token string">'个方法，有'</span><span class="token punctuation">,</span> length <span class="token operator">-</span> index<span class="token punctuation">,</span> <span class="token string">'个方法未响应'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'测试了'</span><span class="token punctuation">,</span> length<span class="token punctuation">,</span> <span class="token string">'个方法，没有方法未响应'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.f507fe5c.js" defer></script><script src="/assets/js/2.329362c0.js" defer></script><script src="/assets/js/39.0379d964.js" defer></script>
+  </body>
+</html>

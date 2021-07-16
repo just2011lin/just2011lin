@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>使用setTimeout实现setInterval方法 | just2011lin的技术博客</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="学了什么就用什么">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.f507fe5c.js" as="script"><link rel="preload" href="/assets/js/2.329362c0.js" as="script"><link rel="preload" href="/assets/js/12.2b633aa8.js" as="script"><link rel="prefetch" href="/assets/js/10.50184b14.js"><link rel="prefetch" href="/assets/js/11.40639c88.js"><link rel="prefetch" href="/assets/js/13.c2cb6e7d.js"><link rel="prefetch" href="/assets/js/14.77eee6c1.js"><link rel="prefetch" href="/assets/js/15.0071b438.js"><link rel="prefetch" href="/assets/js/16.a5e93048.js"><link rel="prefetch" href="/assets/js/17.be2f72ef.js"><link rel="prefetch" href="/assets/js/18.d1dfdffe.js"><link rel="prefetch" href="/assets/js/19.c63dedd4.js"><link rel="prefetch" href="/assets/js/20.fb9d0759.js"><link rel="prefetch" href="/assets/js/21.bb8e85e8.js"><link rel="prefetch" href="/assets/js/22.baa36040.js"><link rel="prefetch" href="/assets/js/23.ced46d0c.js"><link rel="prefetch" href="/assets/js/24.0612341a.js"><link rel="prefetch" href="/assets/js/25.2c5250e5.js"><link rel="prefetch" href="/assets/js/26.3e56ba12.js"><link rel="prefetch" href="/assets/js/27.33f225ba.js"><link rel="prefetch" href="/assets/js/28.b75fb278.js"><link rel="prefetch" href="/assets/js/29.06ce868f.js"><link rel="prefetch" href="/assets/js/3.6e902163.js"><link rel="prefetch" href="/assets/js/30.5713142b.js"><link rel="prefetch" href="/assets/js/31.c36c8bfe.js"><link rel="prefetch" href="/assets/js/32.a4cc06c8.js"><link rel="prefetch" href="/assets/js/33.a5471b6d.js"><link rel="prefetch" href="/assets/js/34.a9b789f3.js"><link rel="prefetch" href="/assets/js/35.60520fb6.js"><link rel="prefetch" href="/assets/js/36.fc23a3b6.js"><link rel="prefetch" href="/assets/js/37.a6798c92.js"><link rel="prefetch" href="/assets/js/38.4baf6962.js"><link rel="prefetch" href="/assets/js/39.0379d964.js"><link rel="prefetch" href="/assets/js/4.ba3164ba.js"><link rel="prefetch" href="/assets/js/40.78be8984.js"><link rel="prefetch" href="/assets/js/5.75a3592b.js"><link rel="prefetch" href="/assets/js/6.0377ba0c.js"><link rel="prefetch" href="/assets/js/7.abf41f48.js"><link rel="prefetch" href="/assets/js/8.72a7f551.js"><link rel="prefetch" href="/assets/js/9.0cf5eb4e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">just2011lin的技术博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="浏览" class="dropdown-title"><span class="title">浏览</span> <span class="arrow down"></span></button> <button type="button" aria-label="浏览" class="mobile-dropdown-title"><span class="title">浏览</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link router-link-active">
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/stylesheet/" class="nav-link">
+  stylesheet
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/third-party/" class="nav-link">
+  third-party
+</a></li><li class="dropdown-item"><!----> <a href="/other/" class="nav-link">
+  other
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="浏览" class="dropdown-title"><span class="title">浏览</span> <span class="arrow down"></span></button> <button type="button" aria-label="浏览" class="mobile-dropdown-title"><span class="title">浏览</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link router-link-active">
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/stylesheet/" class="nav-link">
+  stylesheet
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/third-party/" class="nav-link">
+  third-party
+</a></li><li class="dropdown-item"><!----> <a href="/other/" class="nav-link">
+  other
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>使用setTimeout实现setInterval方法</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/javascript/%E4%BD%BF%E7%94%A8setTimeout%E5%AE%9E%E7%8E%B0setInterval%E6%96%B9%E6%B3%95.html#完整代码" class="sidebar-link">完整代码</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/javascript/%E4%BD%BF%E7%94%A8setTimeout%E5%AE%9E%E7%8E%B0setInterval%E6%96%B9%E6%B3%95.html#附言" class="sidebar-link">附言</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="使用settimeout实现setinterval方法"><a href="#使用settimeout实现setinterval方法" class="header-anchor">#</a> 使用setTimeout实现setInterval方法</h1> <h2 id="完整代码"><a href="#完整代码" class="header-anchor">#</a> 完整代码</h2> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token comment">/**
+* setMyInterval启动后用于清除定时器的数据类型
+*/</span>
+<span class="token keyword">type</span> <span class="token class-name">MyIntervalId</span> <span class="token operator">=</span> <span class="token punctuation">{</span> timeout<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+* 使用类来记录setTimtout的返回值
+*/</span>
+<span class="token keyword">class</span> <span class="token class-name">MyInterval</span> <span class="token punctuation">{</span>
+   <span class="token comment">// 记录setTimout的返回值，用于终止循环</span>
+   <span class="token keyword">private</span> myIntervalId<span class="token operator">:</span> MyIntervalId <span class="token operator">=</span> <span class="token punctuation">{</span>timeout<span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+   <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token function-variable function">callback</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token builtin">any</span><span class="token punctuation">,</span> delay<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> MyIntervalId <span class="token punctuation">{</span>
+       <span class="token comment">// @ts-ignore</span>
+       <span class="token keyword">this</span><span class="token punctuation">.</span>myIntervalId<span class="token punctuation">.</span>timeout <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+           <span class="token comment">// 移除timeout</span>
+           <span class="token function">callback</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setInterval</span><span class="token punctuation">(</span>callback<span class="token punctuation">,</span> delay<span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">}</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>myIntervalId<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+* 设置我的循环定时器函数
+* @param callback 执行的函数
+* @param delay 延迟执行的时间
+* @param args 传入执行函数的参数
+*/</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">setMyInterval</span><span class="token punctuation">(</span><span class="token function-variable function">callback</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token builtin">any</span><span class="token punctuation">,</span> delay<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> MyIntervalId <span class="token punctuation">{</span>
+   <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">MyInterval</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setInterval</span><span class="token punctuation">(</span>callback<span class="token punctuation">,</span> delay<span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+* 终止我的循环定时器函数
+* @param myIntervalId
+*/</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">clearMyInterval</span><span class="token punctuation">(</span>myIntervalId<span class="token operator">:</span> MyIntervalId<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span>
+   <span class="token function">clearTimeout</span><span class="token punctuation">(</span>myIntervalId<span class="token punctuation">.</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="附言"><a href="#附言" class="header-anchor">#</a> 附言</h2> <ol><li>使用MyIntervalId而不是直接返回MyInterval类</li></ol> <p>本质上可以设置MyInterval类myIntervalId为数值类型，并将setTimeout方法的返回值赋值给myInterval， 然后在实例方法setInterval中返回类本身。</p> <p>这样做的话，用户将可以直接操作MyInterval实例，如果用户误用了实例方法setInterval，将可能导致无法预估的问题，
+所以采用了返回一个其他类型的值的方式</p> <p>这样的开发原则，我应该取一个名称，就叫：代码权限限制原则</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.f507fe5c.js" defer></script><script src="/assets/js/2.329362c0.js" defer></script><script src="/assets/js/12.2b633aa8.js" defer></script>
+  </body>
+</html>
